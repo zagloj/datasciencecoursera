@@ -52,5 +52,5 @@ yTest <- data.table(read.table("UCI_HAR_Dataset/test/y_test.txt",
 subject <- rbind(subjectTrain, subjectTest)
 y <- rbind(yTrain, yTest)
 data <- cbind(x2, subject, y)
-d1 <- group_by(data, Activity, Subject) %>% summarise_each(funs(mean))
-write.table(d1, file="tidyData.txt")
+grouped <- group_by(data, Activity, Subject) %>% summarise_each(funs(mean))
+write.table(grouped, file="tidyData.txt")
